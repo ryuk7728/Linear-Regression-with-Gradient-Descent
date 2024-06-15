@@ -46,7 +46,6 @@ loss=[]
 
 plt.scatter(x, y, color='blue', label='Data points')
 
-print("Loss:")
 for i in range(iter):
     lossx.append(i)
     tempW=w-alpha*computeDerivativeW(x,y,w,b,m)
@@ -56,16 +55,18 @@ for i in range(iter):
     loss.append(sum((w*x+b-y)**2)/50)
 
 
-# print(w)
-# print(b)
 
 xp = np.linspace(0, 50, 500)
 yp = w * xp + b
 
 plt.plot(xp, yp, color='red', label=f'y = {w:.2f}x + {b:.2f}')
+plt.title("Linear Regression")
 plt.legend()
 plt.show()
 
 plt.plot(lossx, loss, color='blue', label='Data points')
+plt.title("Loss Curve")
+plt.xlabel("Iterations")
+plt.ylabel("Loss")
 plt.show()
 
